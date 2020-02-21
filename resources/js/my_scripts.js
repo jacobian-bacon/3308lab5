@@ -115,9 +115,9 @@ function loadStatsPage() {
 		}
 		line += 1;
 	}
-	let scoretable = document.getElementById("overall_score");
-	scoretable.rows[1].cells[0].innerText = wins.toString();
-	scoretable.rows[1].cells[1] = (matches - wins).toString();
+	document.getElementById("wins").innerText = wins.toString();
+	let losses = (matches - wins);
+	document.getElementById("losses").innerText = losses.toString();
 	console.log("wins: ", wins);
 	console.log("losses: ", matches - wins);
 }
