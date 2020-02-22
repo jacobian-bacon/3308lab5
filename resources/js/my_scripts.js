@@ -16,6 +16,25 @@ var players = [{ name: "John Doe", img: "../resources/img/player1.jpg", alt: "Im
 { name: "Samuel Phillips", img: "../resources/img/player3.jpg", alt: "Image of Player 3", year: "Freshman", major: "Math", games_played: 8, pass_yards: 35, rushing_yards: 70, receiving_yards: 98 },
 { name: "Robert Myers", img: "../resources/img/player4.jpg", alt: "Image of Player 4", year: "Senior", major: "Computer Science", games_played: 31, pass_yards: 802, rushing_yards: 375, receiving_yards: 128 }];
 
+function loadPlayersPage() {
+	for (let [index, entry] of players.entries()){
+		document.getElementById("player_selector").innerHTML += "<a class='dropdown-item' onclick='switchPlayers(" + index + ")' href='#'>" + entry.name + "</a>";
+	}
+}
+
+function switchPlayers(playerNum){
+	document.getElementById("p_year").innerText = players[playerNum].year;
+	document.getElementById("p_major").innerText = players[playerNum].major;
+	document.getElementById("g_played").innerText = players[playerNum].games_played;
+	document.getElementById("p_yards").innerText = players[playerNum].pass_yards;
+	document.getElementById("r_yards").innerText = players[playerNum].rushing_yards;
+	document.getElementById("rec_yards").innerText = players[playerNum].receiving_yards;
+	document.getElementById("avg_p_yards").innerText = Math.round(players[playerNum].pass_yards / players[playerNum].games_played);
+	document.getElementById("avg_r_yards").innerText = Math.round(players[playerNum].rushing_yards / players[playerNum].games_played);
+	document.getElementById("avg_rec_yards").innerText = Math.round(players[playerNum].receiving_yards / players[playerNum].games_played);
+	document.getElementById("player_img").src = players[playerNum].img;
+	document.getElementById("player_img").alt = players[playerNum].name;
+}
 
 /*
 	Registration Page:
